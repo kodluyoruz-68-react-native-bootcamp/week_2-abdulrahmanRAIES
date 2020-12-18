@@ -3,7 +3,7 @@ import {SafeAreaView, View, Text,StyleSheet,TextInput,Button,FlatList} from 'rea
 import MyTextInput from './component/MyTextInput';
 import Header from './component/Header';
 import ToDoItem from './component/ToDoItem';
-import MyButton from './component/MyButton';
+
 /**
  * TextInput: testID="input" (component which is user types the todo text)
  * TouchableOpacity: testID="button" (component which is saves the todo to list)
