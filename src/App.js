@@ -14,12 +14,15 @@ function App() {
   const [count,setaCounter]=useState(0);
   const [todo,setToDo]=useState('');
 
-  const removeItem=(key) =>{
+  const removeItem=(key,item) =>{
     //console.log(key);
     setToDo((prevTodo)=>{
       return prevTodo.filter(todo => todo.key != key);
     })
-    setaCounter(count-1)
+    //setaCounter(count-1)
+    if (item.isDone==false){
+      setaCounter(count-1)
+    }
    }
 
 
@@ -36,11 +39,18 @@ function App() {
     }
    }
 
-   const onClick=(key)=>{
+   const onClick=(item)=>{
     setToDo(
       todo.map((todo)=>
-      todo.key===key?{...todo,isDone:! todo.isDone}:todo,),
+      todo.key===item.key?{...todo,isDone:! todo.isDone}:todo,),
+      //setaCounter(count-1)
     );
+    if (item.isDone==false){
+      setaCounter(count-1)
+    }
+    else{
+      setaCounter(count+1)
+    }
    };
    const check_=(key)=> (e) => {
     onClick(key);
